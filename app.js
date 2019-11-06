@@ -5,7 +5,7 @@ var storeHours = ['6 am.', '7 am.', '8 am.', '9 am.', '10 am.', '11 am.', '12 pm
 var allStoreData = [];
 
 
-// create the Store location object
+// create the Store object
 function Store(storeName, customerMin, customerMax, avgCookies) {
   this.storeName = storeName;
   this.customerMin = customerMin;
@@ -26,11 +26,10 @@ function Store(storeName, customerMin, customerMax, avgCookies) {
   }
   renderTableData(this);
   allStoreData.push(this);
-
+  // renderColumnTotals(this);
 };
 
-
-// render header row
+// render header row; start by creating a blank cell first column the cycle through hours
 function renderHours(domReference) {
   var tr = document.createElement('tr');
   var th = document.createElement('th');
@@ -49,7 +48,6 @@ function renderHours(domReference) {
 }
 
 // render table data and totals for rows
-
 function renderTableData(object) {
   var tr =document.createElement('tr');
   var th = document.createElement('th');
@@ -67,13 +65,24 @@ function renderTableData(object) {
   tableReference.appendChild(tr);
 }
 
-// column totals by hour
+// // create column total for all hourly sales
+function renderColumnTotals(object) {
+  var tr = document.createElement('tr');
+  var th = document.createElement('th');
+  th.textContent = 'test';
+  tr.appendChild(th);
 
+  var hourlyTotalStoreSales = 0
+  for (var hoursIndex = 0; hoursIndex < storeHours.length; hoursIndex++) {
+    for(var storeIndex = 0; storeIndex < allStoreData.length; storeIndex++) {
+      hourlyTotalStoreSales = allStoreData.cookiesSoldPerHour[storeIndex];
+      // hourlyTotalStoreSales +=
+    }
+  }
+}
 
 // calliong header row
 renderHours(tableReference);
-
-
 
 // create an Instance for each store
 var seattle = new Store('Seattle', 23, 65, 6.3);
