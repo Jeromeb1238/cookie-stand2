@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+  width: 1000px;
+}
+
+header {
+  align-content: center;
+  border: 12px;
+
+}
+
+h1 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+table {
+  font-family: 'Cabin', sans-serif;
+  margin-top: 0px;
+  font-size: 20px;
+  float: left;
+  border: 12px;
+  width: 80%;
+  text-align: center;
+}
+  th {
+    border:solid 1px;
+  
+}
+td {
+  border: solid 1px;
+}
