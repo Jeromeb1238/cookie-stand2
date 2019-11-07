@@ -11,6 +11,7 @@ function Store(storeName, customerMin, customerMax, avgCookies) {
   this.customerMin = customerMin;
   this.customerMax = customerMax;
   this.avgCookies = avgCookies;
+
   this.customersPerHour = function () {
     var randomHourlyCustomers = Math.floor(Math.random() * (this.customerMax - this.customerMin) + this.customerMin);
     return randomHourlyCustomers;
@@ -19,25 +20,24 @@ function Store(storeName, customerMin, customerMax, avgCookies) {
   this.totalCookies = 0;
 
   // calculate cookies sold per hour and push them to the cookies sold per hour array
-  for (var cookieHourIndex = 0; cookieHourIndex < storeHours.length; cookieHourIndex++) {
+  for (var storeHoursIndex = 0; storeHoursIndex < storeHours.length; storeHoursIndex++) {
     var hourlyCookieSales = Math.ceil(this.customersPerHour() * this.avgCookies);
     this.cookiesSoldPerHour.push(hourlyCookieSales);
     this.totalCookies += hourlyCookieSales;
   }
-  //renderTableData(this);
   allStoreData.push(this);
 };
 
-// render header row; start by creating a blank cell first column the cycle through hours
+// render header row; start with blank
 function renderHours(domReference) {
   var tr = document.createElement('tr');
   var th = document.createElement('th');
   th.textContent = '';
   tr.appendChild(th);
 
-  for (var cookieHourIndex = 0; cookieHourIndex < storeHours.length; cookieHourIndex++) {
+  for (var storeHoursIndex = 0; storeHoursIndex < storeHours.length; storeHoursIndex++) {
     th = document.createElement('th');
-    th.textContent = storeHours[cookieHourIndex];
+    th.textContent = storeHours[storeHoursIndex];
     tr.append(th);
   }
   th = document.createElement('th');
@@ -53,9 +53,9 @@ function renderTableData(object) {
   th.textContent = object.storeName;
   tr.appendChild(th);
 
-  for (var cookieHourIndex = 0; cookieHourIndex < storeHours.length; cookieHourIndex++) {
+  for (var storeHoursIndex = 0; storeHoursIndex < storeHours.length; storeHoursIndex++) {
     var td = document.createElement('td');
-    td.textContent = object.cookiesSoldPerHour[cookieHourIndex];
+    td.textContent = object.cookiesSoldPerHour[storeHoursIndex];
     tr.appendChild(td);
   }
   th = document.createElement('th');
@@ -72,19 +72,16 @@ function renderAllHourlyTotals(domReference) {
   tr.appendChild(th);
   var totalTotal = 0;
 
-  for (var cookieTotalIndex = 0; cookieTotalIndex < storeHours.length; cookieTotalIndex++) {
-    console.log('cookie total indes ', cookieTotalIndex);
-    var cookieStoreTotals = 0;
+  for (var storeHoursIndex = 0; storeHoursIndex < storeHours.length; storeHoursIndex++) {
+    var storeTotalsPerHour = 0;
     for (var storeIndex = 0; storeIndex < allStoreData.length; storeIndex++) {
-      cookieStoreTotals += allStoreData[storeIndex].cookiesSoldPerHour[cookieTotalIndex];
+      storeTotalsPerHour += allStoreData[storeIndex].cookiesSoldPerHour[storeHoursIndex];
     }
-    console.log(`Cookie store totals by hour ${cookieStoreTotals}`);
     var td = document.createElement('td');
-    td.textContent = cookieStoreTotals;
+    td.textContent = storeTotalsPerHour;
     tr.appendChild(td);
-    totalTotal += cookieStoreTotals;
+    totalTotal += storeTotalsPerHour;
   }
-
   th = document.createElement('th');
   th.textContent = totalTotal;
   tr.appendChild(th);
@@ -98,7 +95,6 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
-
 function cleanAndRender() {
   var tableReference = document.getElementById('store-sales');
   tableReference.innerHTML = "";
@@ -110,7 +106,6 @@ function cleanAndRender() {
     renderTableData(currentStore);
   }
   renderAllHourlyTotals(tableReference);
-
 }
 
 // // forms; 
@@ -125,12 +120,8 @@ form.addEventListener('submit', function (event) {
   var storeMin = parseInt(event.target.storeMin.value);
   var storeAvg = parseInt(event.target.storeAvg.value);
   var newStore = new Store(event.target.storeName.value, storeMax, storeMin, storeAvg);
-  // allStoreData.push(newStore);
-  // for (var storeIndex = 0; storeIndex < allStoreData.length; storeIndex++) {
-  //   var currentStore = allStoreData[storeIndex];
-  // }
   cleanAndRender(tableReference);
-
+ 
 })
 console.log(allStoreData);
 
