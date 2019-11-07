@@ -24,7 +24,7 @@ function Store(storeName, customerMin, customerMax, avgCookies) {
     this.cookiesSoldPerHour.push(hourlyCookieSales);
     this.totalCookies += hourlyCookieSales;
   }
-  renderTableData(this);
+  //renderTableData(this);
   allStoreData.push(this);
 };
 
@@ -64,11 +64,7 @@ function renderTableData(object) {
   tableReference.appendChild(tr);
 }
 
-renderHours(tableReference);
-
-
-// create Column Totals for ALL hourly sales
-
+// Add Column Totals for ALL hourly sales
 function renderAllHourlyTotals(domReference) {
   var tr = document.createElement('tr');
   var th = document.createElement('th');
@@ -88,7 +84,7 @@ function renderAllHourlyTotals(domReference) {
     tr.appendChild(td);
     totalTotal += cookieStoreTotals;
   }
-  
+
   th = document.createElement('th');
   th.textContent = totalTotal;
   tr.appendChild(th);
@@ -102,17 +98,40 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
-renderAllHourlyTotals(tableReference);
-// function cleanScreenAndRenderAll() {
 
-//   tableReference.innerHTML = "";
+function cleanAndRender() {
+  var tableReference = document.getElementById('store-sales');
+  tableReference.innerHTML = "";
 
-// }
+  renderHours(tableReference);
+
+  for (var storeIndex = 0; storeIndex < allStoreData.length; storeIndex++) {
+    var currentStore = allStoreData[storeIndex];
+    renderTableData(currentStore);
+  }
+  renderAllHourlyTotals(tableReference);
+
+}
 
 // // forms; 
-// var form = document.getElementById('add-store');
-// form.addEventListner('submit', function(event) {
-//   event.preventDefault();
-//   alert('I am watching');
-//   alert(event.target.name.value);
-// }
+var form = document.getElementById('add-store');
+
+cleanAndRender();
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var storeMax = parseInt(event.target.storeMax.value);
+  var storeMin = parseInt(event.target.storeMin.value);
+  var storeAvg = parseInt(event.target.storeAvg.value);
+  var newStore = new Store(event.target.storeName.value, storeMax, storeMin, storeAvg);
+  // allStoreData.push(newStore);
+  // for (var storeIndex = 0; storeIndex < allStoreData.length; storeIndex++) {
+  //   var currentStore = allStoreData[storeIndex];
+  // }
+  cleanAndRender(tableReference);
+
+})
+console.log(allStoreData);
+
+
