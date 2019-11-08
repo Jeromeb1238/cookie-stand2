@@ -1,0 +1,60 @@
+/* * {
+  border: 1px solid black;
+} */
+
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background-color: lightseagreen;
+  width: 1000px;
+}
+
+header {
+  width: 1000px;
+  height: 450px;
+}
+
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+table {
+  font-family: 'Cabin', sans-serif;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 20px;
+  float: left;
+  border: 2px;
+  width: 1000px;
+  text-align: center;
+}
+th {
+  border:solid 1px;
+}
+tr {
+  border:solid 1px;
+}
+td {
+  border: solid 1px;
+}
+
+form {
+  width: 1000px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+label {
+  width: 150px;
+}
+
+input {
+  width: 125px;
+}
+footer {
+  margin-top: 25px;
+  width: 1000px;
+  border: 1px  solid black;
+}
