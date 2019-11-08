@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Salmon Cookies</title>
-  <link rel="stylesheet" type="text/css" href="./styles.css" <link
-    href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/salestyles.css"/>
 </head>
-
 <body>
   <header>
-    <img src="./images/fish1.jfif" />
+      <h1>Salmon Cookie Sales by Store and Hour</h1>
   </header>
-  <section>
-    <h1>Salmon Cookie Sales by Store and Hour</h1>
+  <main>
     <table id="store-sales"></table>
-  </section>
-  <br>
-  <form id='add-store'>
-    <fieldset>
-      <label for="storeName">Store Name</label>
-      <input name="storeName" type="text" />
-      <label for="storeMax">Store max</label>
-      <input name="storeMax" type="number" />
-      <label for="storeMin">Store min</label>
-      <input name="storeMin" type="number" />
-      <label for="storeAvg">Store avg</label>
-      <input name="storeAvg" type="number"/>
-      <input type="submit">
-    </fieldset>
-  </form>
+    <form id='add-store'>
+      <fieldset>
+        <label class="form-labels" for="storeName">Store Name</label>
+        <input name="storeName" type="text" />
+
+        <label for="storeMax">Store max</label>
+        <input name="storeMax" type="number" />
+        
+        <label for="storeMin">Store min</label>
+        <input name="storeMin" type="number" />
+
+        <label for="storeAvg">Store avg</label>
+        <input name="storeAvg" type="number"/>
+
+        <input type="submit">
+      </fieldset>
+    </form>
+  </main>
+  <footer>
+    <div id="nav-bar">
+      <h3>Navigation bar</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </footer>
 
   <script src="./app.js"></script>
 </body>
