@@ -2,48 +2,28 @@
   display: block;
 }
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #000000;
-  background-color: rgb(229, 241, 255);
-  line-height: 1.4em;
-  margin: 0px;
-}
-.wrapper {
-  width: 940px;
-  margin: 20px auto 20px auto;
-  border: 2px solid #000000;
-  background-color: rgb(229, 241, 255);
+  margin: 5px;
 }
 header {
-  width: 1000px;
-  height: 160px;
+  width: 940px;
+  height: 125px;
   background-image: url(/images/headerbackground.jpg);
   background-position: center top;
-} 
-h1 {
-  text-align: center;
-  width: 940px;
-  height: 30px;
-  margin-top: 0px;
-
 }
-figure {
-  float: left;
-  width: 290px;
-  height: 220px;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #eeeeee;
+h1,h2,h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
+  color:rgb(28, 65, 107);
 }
-nav, footer {
-  clear: both;
-  color: rgb(10, 11, 61);
-  background-color:  rgb(79, 122, 172);
-  height: 70px;
+h1, h2 {
+  padding: 15px 0px 0px 30px;
 }
 nav, ul {
-  margin: 0px;
-  padding: 5px 0px 5px 30px;
+  color: rgb(10, 11, 61);
+  background-color:  rgb(79, 122, 172);
+  height: 40px;
 }
 nav li {
   display: inline;
@@ -54,40 +34,39 @@ nav li a {
 nav li a:hover, nav li a.current {
   color: rgb(104, 24, 97);
 }
-table {
-  font-family: 'Cabin', sans-serif;
+#store-sales {
+  font-family: 'Merriweather', serif;
+  color:rgb(28, 65, 107);
   margin-top: 25px;
   margin-bottom: 25px;
-  font-size: 20px;
+  font-size: 15px;
   float: left;
-  border: 2px;
-  width: 1000px;
+  width: 940px;
   text-align: center;
 }
 th {
-  border:solid 1px;
+  border:solid 2px  rgb(79, 122, 172);
 }
 tr {
-  border:solid 1px;
+  border:solid 1px black;
 }
 td {
-  border: solid 1px;
+  border: solid 1px black;
 }
-
 form {
-  width: 1000px;
+  width: 940px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
-label {
-  width: 150px;
-}
-
 input {
   width: 125px;
 }
 footer {
-  margin-top: 5px;
-  width: 1000px;
-  border: 1px  solid black;
+  clear: both;
+  font-size: 80%;
+  padding: 7px 0px 5px 0px;
+  color: rgb(10, 11, 61);
+  background-color:  rgb(79, 122, 172);
+  height: 30px;
+  width: 940px;
 }

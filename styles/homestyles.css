@@ -12,35 +12,34 @@ body {
 .wrapper {
   width: 940px;
   margin: 20px auto 20px auto;
-  border: 2px solid #000000;
+  /* border: 1px solid #000000; */
   background-color: rgb(229, 241, 255);
 }
 header {
-  height: 160px;
+  /* border: solid 2px black; */
+  width: 940px;
+  height: 140px;
   background-image: url(/images/headerbackground.jpg);
-  /* background-repeat: no-repeat; */
   background-position: center top;
 }
 h1 {
-  text-indent: 100px;
-  width: 940px;
-  height: 130px;
-  margin: 0px;
+  padding: 25px;
 }
  
-nav, footer {
+nav {
   clear: both;
+  position: relative;
   color: rgb(10, 11, 61);
   background-color:  rgb(79, 122, 172);
   height: 30px;
 }
 nav, ul {
+  top: 0px;
   margin: 0px;
   padding: 5px 0px 5px 30px;
 }
 nav li {
   display: inline;
-  margin-top: 40px;
 }
 nav li a {
   color: rgb(20, 21, 112);
@@ -51,9 +50,10 @@ nav li a:hover, nav li a.current {
 section.whous {
   float: left;
   width: 659px;
-  border-right: 1px solid #eeeeee;
-}article {
-  clear: both;
+  border-right: 1px solid black;
+}
+article {
+  /* clear: both; */
   overflow: auto;
   width: 100%;
 }
@@ -63,14 +63,9 @@ hgroup {
 figure {
   float: left;
   width: 290px;
-  /* height: 220px; */
-  padding: 10px;
+  padding:10px;
   margin: 10px;
   border: 1px solid #eeeeee;
-}
-figcaption {
-  font-size: 90%;
-  text-align: left;
 }
 figcaption {
   font-size: 90%;
@@ -89,7 +84,9 @@ aside section ul li {
   background-color: rgb(255, 255, 255);
 }
 h1,h2,h3 {
+  font-family: 'Merriweather', serif;
   font-weight: normal;
+  color:rgb(28, 65, 107);
 }
 h2 {
   margin: 10px 0px 5px 0px;
@@ -102,6 +99,10 @@ aside h2 {
   padding: 30px 0px 10px 0px;
 }
 footer {
+  clear: both;
   font-size: 80%;
   padding: 7px 0px 0px 20px;
+  color: rgb(10, 11, 61);
+  background-color:  rgb(79, 122, 172);
+  height: 30px;
 }
